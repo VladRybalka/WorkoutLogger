@@ -1,4 +1,5 @@
-import Logic.work_with_table as sheet_logic
+import Logic.work_with_databases as database_logic
 
 if __name__ == "__main__":
-    sheet_logic.create_empty_year_db(2025, "Cicle", ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"])
+    # database_logic.create_empty_year_db(2025, "Cicle", ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"])
+    database_logic.add_sport("Cycling", "Time, Distance, Average_Speed, KCalorie")
