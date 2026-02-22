@@ -1,5 +1,7 @@
 import sqlite3
 
+#region -==- Sport -==-
+
 # Добавления нового вида спорта в базу данных.
 def add_sport(name, fields):
     con = sqlite3.connect('Data\\sports_data\\sports.db')
@@ -26,6 +28,10 @@ def get_fields(sport):
 
     return answer[0][0]
 
+#endregion
+
+#region -==- Trains -==-
+
 # Создание базы данных по году(если её нет) и создание таблицы по спорту с нужными полями.
 def create_empty_year_db(year, sport):
     con = sqlite3.connect(f'Data\\workout_data\\{year}.db')
@@ -33,7 +39,7 @@ def create_empty_year_db(year, sport):
 
     # Формирует SQL-запрос.
     sql_request = (f"CREATE TABLE IF NOT EXISTS {sport}(id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                   f"Day INTEGER, Month INTEGER, {get_fields(sport)})")
+                   f"{get_fields(sport)})")
 
     # Отправляет запрос на создание таблицы и применяет его.
     cur.execute(sql_request)
@@ -55,3 +61,16 @@ def add_train(year, sport, data):
     cur.execute(sql_request)
     con.commit()
     con.close()
+
+def get_train(sport, year, month, day):
+    con = sqlite3.connect(f'Data\\workout_data\\{year}.db')
+    cur = con.cursor()
+
+    # Отправляет запрос и получает ответ в виде [(элемент)].
+    cur.execute(f'SELECT {get_fields(sport)} FROM {sport} WHERE Month = {month} and Day = "{day}"')
+    answer = cur.fetchall()
+    con.close()
+
+    return answer
+
+#endregion
