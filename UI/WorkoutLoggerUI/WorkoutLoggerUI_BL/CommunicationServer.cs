@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace WorkoutLoggerUI_BL
 {
-    internal class CommunicationServer
+    public class CommunicationServer
     {
         public static void AddSport()
         {

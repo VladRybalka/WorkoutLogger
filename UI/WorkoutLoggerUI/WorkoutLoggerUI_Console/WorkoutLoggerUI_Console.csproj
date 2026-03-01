@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WorkoutLoggerUI_BL\WorkoutLoggerUI_BL.csproj">
+      <Project>{bacb9c97-7d8a-4fce-af3b-70cf97d5c564}</Project>
+      <Name>WorkoutLoggerUI_BL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

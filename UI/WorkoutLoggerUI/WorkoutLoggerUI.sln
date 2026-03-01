@@ -4,6 +4,10 @@ VisualStudioVersion = 18.3.11312.210
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkoutLoggerUI_Form", "WorkoutLoggerUI_Form\WorkoutLoggerUI_Form.csproj", "{43231549-1085-4C8F-BBA5-3F0DD1EF343B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkoutLoggerUI_Console", "WorkoutLoggerUI_Console\WorkoutLoggerUI_Console.csproj", "{B8F966A4-E956-4ED5-9813-7AE0F3818B70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkoutLoggerUI_BL", "WorkoutLoggerUI_BL\WorkoutLoggerUI_BL.csproj", "{BACB9C97-7D8A-4FCE-AF3B-70CF97D5C564}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,6 +18,14 @@ Global
 		{43231549-1085-4C8F-BBA5-3F0DD1EF343B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43231549-1085-4C8F-BBA5-3F0DD1EF343B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43231549-1085-4C8F-BBA5-3F0DD1EF343B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8F966A4-E956-4ED5-9813-7AE0F3818B70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8F966A4-E956-4ED5-9813-7AE0F3818B70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8F966A4-E956-4ED5-9813-7AE0F3818B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8F966A4-E956-4ED5-9813-7AE0F3818B70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BACB9C97-7D8A-4FCE-AF3B-70CF97D5C564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BACB9C97-7D8A-4FCE-AF3B-70CF97D5C564}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BACB9C97-7D8A-4FCE-AF3B-70CF97D5C564}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BACB9C97-7D8A-4FCE-AF3B-70CF97D5C564}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
