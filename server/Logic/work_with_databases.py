@@ -62,12 +62,19 @@ def add_train(year, sport, data):
     con.commit()
     con.close()
 
+# получение тренировок по годам, месяцам, дням.
 def get_train(sport, year, month, day):
     con = sqlite3.connect(f'Data\\workout_data\\{year}.db')
     cur = con.cursor()
 
+    request = f'SELECT {get_fields(sport)} FROM {sport}'
+    if(month != -1):
+        request += f" WHERE Month = {month}"
+        if(day != -1):
+            request += f" and Day = {day}"
+
     # Отправляет запрос и получает ответ в виде [(элемент)].
-    cur.execute(f'SELECT {get_fields(sport)} FROM {sport} WHERE Month = {month} and Day = "{day}"')
+    cur.execute(request)
     answer = cur.fetchall()
     con.close()
 
