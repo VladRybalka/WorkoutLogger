@@ -10,27 +10,29 @@ namespace WorkoutLoggerUI_BL
 {
     public class CommunicationServer
     {
-        public static void AddSport()
+        public static void AddSport(string name, string fields)
         {
             Console.WriteLine("Add sport successfully");
         }
 
-        public static void RemoveSport()
+        // TODO: Not avaiable in Python
+        public static void RemoveSport(string name)
         {
             Console.WriteLine("Remove sport successfully");
         }
 
-        public static void AddTrain()
+        public static void AddTrain(string year, string sport, string data)
         {
             Console.WriteLine("Add train successfully");
         }
 
-        public static void RemoveTrain()
+        // TODO: Not avaiable in Python
+        public static void RemoveTrain(string year, string sport)
         {
             Console.WriteLine("Remove train successfully");
         }
 
-        public static void GetTrain()
+        public static void GetTrain(string sport, string year, string month, string day)
         {
             Console.WriteLine("Get Successuflly");
         }

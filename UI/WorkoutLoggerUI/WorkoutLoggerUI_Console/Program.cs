@@ -21,26 +21,58 @@ namespace WorkoutLoggerUI_Console
 
                 Console.WriteLine();
 
-                switch (menu)
+                if (menu == 0) break;
+                else if(menu == 1)
                 {
-                    case 0:
-                        break;
-                    case 1:
-                        CommunicationServer.AddSport();
-                        break;
-                    case 2:
-                        CommunicationServer.RemoveSport();
-                        break;
-                    case 3:
-                        CommunicationServer.AddTrain();
-                        break;
-                    case 4:
-                        CommunicationServer.RemoveTrain();
-                        break;
-                    case 5:
-                        CommunicationServer.GetTrain();
-                        break;
+                    Console.Write("Sport name: ");
+                    string name = Console.ReadLine();
+
+                    Console.Write("Fields: ");
+                    string fields = Console.ReadLine();
+
+                    CommunicationServer.AddSport(name, fields);
                 }
+                else if(menu == 2)
+                {
+                    Console.Write("Sport name: ");
+                    string name = Console.ReadLine();
+
+                    CommunicationServer.RemoveSport(name);
+                }
+                else if (menu == 3)
+                {
+                    Console.Write("Year: ");
+                    string year = Console.ReadLine();
+
+                    Console.Write("Sport name: ");
+                    string name = Console.ReadLine();
+
+                    Console.Write("Data: ");
+                    string data = Console.ReadLine();
+
+                    CommunicationServer.AddTrain(year, name, data);
+                }
+                else if (menu == 4)
+                {
+                    CommunicationServer.RemoveTrain();
+                }
+                else if (menu == 5)
+                {
+                    Console.Write("Sport name: ");
+                    string name = Console.ReadLine();
+
+                    Console.Write("Year: ");
+                    string year = Console.ReadLine();
+
+                    Console.Write("Month: ");
+                    string month = Console.ReadLine();
+
+                    Console.Write("Day: ");
+                    string day = Console.ReadLine();
+
+                    CommunicationServer.GetTrain(name, year, month, day);
+                }
+
                 Console.WriteLine();
             }
         }
