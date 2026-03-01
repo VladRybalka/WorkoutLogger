@@ -14,8 +14,4 @@ def add_train():
 def get_train():
     pass
 
-@app.route('/test')
-def test():
-    return "OK"
-
 app.run(port=5000)
