@@ -27,7 +27,7 @@ namespace WorkoutLoggerUI_BL
         }
 
         // TODO: Not avaiable in Python
-        public static void RemoveTrain(string year, string sport)
+        public static void RemoveTrain()
         {
             Console.WriteLine("Remove train successfully");
         }
