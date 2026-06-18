@@ -18,11 +18,11 @@ namespace WorkoutLoggerUI
             InitializeComponent();
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
-            using (HttpClient client = new HttpClient())
+            using (HttpClient httpClient = new HttpClient())
             {
-                string res = await client.GetStringAsync("http://127.0.0.1:5001/test");
+                string res = await httpClient.GetStringAsync("http://127.0.0.1:5001/start");
             }
         }
     }
