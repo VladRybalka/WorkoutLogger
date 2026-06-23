@@ -20,6 +20,7 @@ namespace WorkoutLoggerUI
 
         private async void Form1_Load(object sender, EventArgs e)
         {
+            // Makes a request to initialize the database.
             using (HttpClient httpClient = new HttpClient())
             {
                 string res = await httpClient.GetStringAsync("http://127.0.0.1:5001/start");

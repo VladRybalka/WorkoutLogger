@@ -1,2 +1,10 @@
 import sqlite3
-from database_init import connection
+
+def get_all_sports():
+    with sqlite3.connect('Logic\\Database_Logic\\data.db') as connection:
+        cursor = connection.cursor()
+        cursor.execute("SELECT Name FROM Sports")
+        sports = cursor.fetchall()
+
+    return sports
+
