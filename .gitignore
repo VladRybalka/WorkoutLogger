@@ -16,5 +16,4 @@ obj/
 *.suo
 packages/
 *.nupkg
-*.log
 *.tmp

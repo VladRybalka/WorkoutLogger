@@ -1,4 +1,5 @@
 import sqlite3
+import logs.logger as log
 from .database_data_request import get_all_sports
 
 def add_data_into_sport(name, characteristics):
@@ -8,6 +9,7 @@ def add_data_into_sport(name, characteristics):
         # Check for 0 because the user may not have added any sport yet.
         if len(sports) == 0:
             connection.execute("INSERT INTO Sports VALUES(?, ?)", (name, characteristics))
+            log.info_message(f"Sport {name} successfully added.")
         else:
             exist_in_database = False
             for row in sports:
@@ -16,5 +18,8 @@ def add_data_into_sport(name, characteristics):
 
             if not exist_in_database:
                 connection.execute("INSERT INTO Sports VALUES(?, ?)", (name, characteristics))
+                log.info_message(f"Sport {name} successfully added.")
+            else:
+                log.info_message(f"Sport {name} has already been added.")
 
         connection.commit()
