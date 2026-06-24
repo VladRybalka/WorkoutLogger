@@ -1,0 +1,9 @@
+2026-06-24 16:45:23,198 - INFO - Starting database initialization.
+2026-06-24 16:45:23,199 - INFO - Sport table:
+2026-06-24 16:45:23,200 - INFO - Sports table already exists.
+2026-06-24 16:45:23,200 - INFO - Sport Run has already been added.
+2026-06-24 16:45:23,200 - INFO - 
+2026-06-24 16:45:23,201 - INFO - Workout table:
+2026-06-24 16:45:23,201 - INFO - Table Workouts_Run successfully added.
+2026-06-24 16:45:23,206 - INFO - 
+2026-06-24 16:45:23,206 - INFO - The database has been initialized.
