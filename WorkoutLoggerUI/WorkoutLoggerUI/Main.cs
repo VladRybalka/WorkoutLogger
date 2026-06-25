@@ -11,14 +11,35 @@ using System.Windows.Forms;
 
 namespace WorkoutLoggerUI
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
-        public Form1()
+        AddSportForm addSportForm = new AddSportForm();
+
+        public Main()
         {
             InitializeComponent();
         }
 
-        private async void Form1_Load(object sender, EventArgs e)
+        #region -==- ADD -==-
+
+        private void btn_addSport_Click(object sender, EventArgs e)
+        {
+            addSportForm.ShowDialog();
+        }
+
+        private void btn_addData_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_addColumn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        private async void Main_Load(object sender, EventArgs e)
         {
             // Makes a request to initialize the database.
             using (HttpClient httpClient = new HttpClient())
