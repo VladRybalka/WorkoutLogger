@@ -1,11 +1,9 @@
-2026-06-24 17:29:12,399 - INFO - Starting database initialization.
-2026-06-24 17:29:12,399 - INFO - Sport table:
-2026-06-24 17:29:12,399 - INFO - Create Sports table.
-2026-06-24 17:29:12,404 - INFO - Sport Run successfully added.
-2026-06-24 17:29:12,406 - INFO - 
-2026-06-24 17:29:12,406 - INFO - Workout table:
-2026-06-24 17:29:12,408 - INFO - Table Workouts_Run successfully added.
-2026-06-24 17:29:12,411 - INFO - ['Time', 'INTEGER'] added to table Run
-2026-06-24 17:29:12,413 - INFO - ['Time', 'INTEGER'] added to table Run
-2026-06-24 17:29:12,413 - INFO - 
-2026-06-24 17:29:12,413 - INFO - The database has been initialized.
+2026-06-25 15:10:02,134 - INFO - Starting database initialization.
+2026-06-25 15:10:02,134 - INFO - Sport table:
+2026-06-25 15:10:02,141 - INFO - Sports table already exists.
+2026-06-25 15:10:02,141 - INFO - Sport Run has already been added.
+2026-06-25 15:10:02,141 - INFO - 
+2026-06-25 15:10:02,141 - INFO - Workout table:
+2026-06-25 15:10:02,142 - INFO - Table Workouts_Run has already been added.
+2026-06-25 15:10:02,142 - INFO - 
+2026-06-25 15:10:02,142 - INFO - The database has been initialized.
