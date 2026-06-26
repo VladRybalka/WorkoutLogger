@@ -37,7 +37,7 @@
             // 
             this.btn_addData.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_addData.Location = new System.Drawing.Point(186, 16);
-            this.btn_addData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_addData.Margin = new System.Windows.Forms.Padding(4);
             this.btn_addData.Name = "btn_addData";
             this.btn_addData.Size = new System.Drawing.Size(160, 60);
             this.btn_addData.TabIndex = 0;
@@ -49,7 +49,7 @@
             // 
             this.btn_addSport.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_addSport.Location = new System.Drawing.Point(17, 16);
-            this.btn_addSport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_addSport.Margin = new System.Windows.Forms.Padding(4);
             this.btn_addSport.Name = "btn_addSport";
             this.btn_addSport.Size = new System.Drawing.Size(160, 60);
             this.btn_addSport.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             this.btn_addColumn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_addColumn.Location = new System.Drawing.Point(357, 16);
-            this.btn_addColumn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_addColumn.Margin = new System.Windows.Forms.Padding(4);
             this.btn_addColumn.Name = "btn_addColumn";
             this.btn_addColumn.Size = new System.Drawing.Size(160, 60);
             this.btn_addColumn.TabIndex = 2;
@@ -78,9 +78,9 @@
             this.Controls.Add(this.btn_addSport);
             this.Controls.Add(this.btn_addData);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
-            this.Text = "Form1";
+            this.Text = "WorkoutLogger";
             this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
 

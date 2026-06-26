@@ -1,9 +1,5 @@
-2026-06-25 15:10:02,134 - INFO - Starting database initialization.
-2026-06-25 15:10:02,134 - INFO - Sport table:
-2026-06-25 15:10:02,141 - INFO - Sports table already exists.
-2026-06-25 15:10:02,141 - INFO - Sport Run has already been added.
-2026-06-25 15:10:02,141 - INFO - 
-2026-06-25 15:10:02,141 - INFO - Workout table:
-2026-06-25 15:10:02,142 - INFO - Table Workouts_Run has already been added.
-2026-06-25 15:10:02,142 - INFO - 
-2026-06-25 15:10:02,142 - INFO - The database has been initialized.
+2026-06-26 15:34:34,185 - INFO - 
+2026-06-26 15:34:34,185 - INFO - Start adding sports to the database.
+2026-06-26 15:34:34,189 - INFO - Sport tyrtr successfully added.
+2026-06-26 15:34:34,191 - INFO - 
+2026-06-26 15:34:34,191 - INFO - End adding sports to the database.

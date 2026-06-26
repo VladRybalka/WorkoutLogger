@@ -138,7 +138,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "AddSportForm";
-            this.Text = "AddSportForm";
+            this.Text = "Add Sport";
             this.Load += new System.EventHandler(this.AddSportForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -1,7 +1,7 @@
 import sqlite3
 import logs.logger as log
 from .database_adding_data import add_data_into_sport
-from .database_data_request import get_all_sports
+from .database_request_data import get_all_sports
 from .database_adding_column import add_columns
 
 # Create table for workouts.
