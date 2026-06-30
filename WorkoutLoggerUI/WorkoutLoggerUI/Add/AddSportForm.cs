@@ -13,6 +13,8 @@ namespace WorkoutLoggerUI
 {
     public partial class AddSportForm : Form
     {
+        bool isFromOpen = false;
+
         public AddSportForm()
         {
             InitializeComponent();
@@ -22,13 +24,15 @@ namespace WorkoutLoggerUI
 
         private async void btn_add_Click(object sender, EventArgs e)
         {
-            if(!await ValidateAdd())
+            // Checking if sport already exists.
+            if (!await ValidateSportExists())
             {
                 MessageBox.Show("Sport has already been added.", "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            // Checking if any features have been added.
             int count = dataGridView1.RowCount;
             if(count == 0)
             {
@@ -37,9 +41,11 @@ namespace WorkoutLoggerUI
                 return;
             }
 
+            // Creates a set of characteristics that will be passed when adding a sport.
             string charasteristics = string.Empty;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
+                // Checking if not all characteristics have name and type.
                 if (row.Cells[0].Value is null || row.Cells[1].Value is null)
                 {
                     MessageBox.Show("One of the characteristics or data types is not specified.", "Error",
@@ -49,15 +55,19 @@ namespace WorkoutLoggerUI
                 charasteristics += row.Cells[0].Value.ToString() + ":" + row.Cells[1].Value.ToString() + ";";
             }
             charasteristics = charasteristics.Substring(0, charasteristics.Length-1);
-            MessageBox.Show(charasteristics);
 
+            // Submitting a request to add a sport.
             using (HttpClient client = new HttpClient())
             {
                 string a = await client.GetStringAsync($"http://127.0.0.1:5001/add_sport/{txt_name.Text}/{charasteristics}");
             }
+
+            Close();
+            MessageBox.Show("Sport successfully added.");
         }
 
-        public async Task<bool> ValidateAdd()
+        // Check if sport already added.
+        public async Task<bool> ValidateSportExists()
         {
             bool valid = true;
 
@@ -75,14 +85,16 @@ namespace WorkoutLoggerUI
             return valid;
         }
 
-        #region -==- Column -==-
+        #region -==- Row -==-
 
-        private void btn_addColumn_Click(object sender, EventArgs e)
+        // Add row
+        private void btn_addRow_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Add();
         }
 
-        private void btn_deleteColumn_Click(object sender, EventArgs e)
+        // delete selected row.
+        private void btn_deleteRow_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.RemoveAt(dataGridView1.CurrentCell.RowIndex);
         }
@@ -120,57 +132,88 @@ namespace WorkoutLoggerUI
 
         #endregion
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void checkSport_Tick(object sender, EventArgs e)
         {
             if (txt_name.Text == "Example: Run" || txt_name.Text == "")
             {
                 dataGridView1.Enabled = false;
-                btn_addColumn.Enabled = false;
-                btn_deleteColumn.Enabled = false;
+                btn_addRow.Enabled = false;
+                btn_deleteRow.Enabled = false;
                 btn_add.Enabled = false;
             }
             else
             {
                 dataGridView1.Enabled = true;
-                btn_addColumn.Enabled = true;
-                btn_deleteColumn.Enabled = true;
+                btn_addRow.Enabled = true;
+                btn_deleteRow.Enabled = true;
                 btn_add.Enabled = true;
             }
         }
 
+        #region -==- Initialization -==-
+
         private void AddSportForm_Load(object sender, EventArgs e)
         {
-            txt_name_Leave(sender, e);
+            if (!isFromOpen)
+            {
+                InitDataGridView();
 
+                isFromOpen = true;
+            }
+            else
+            {
+                
+                txt_name.Text = "";
+                ActiveControl = null;
+            }
+
+            txt_name_Leave(sender, e);    // Set Example Style.
+            // Start check if the sport name is entered.
+            checkSport.Start();
+        }
+
+        private void InitDataGridView()
+        {
+            // Create ComboBoxCell with types.
             DataGridViewComboBoxCell list = new DataGridViewComboBoxCell();
             list.Items.Add("Numeric");
             list.Items.Add("Decimal");
             list.Items.Add("Text");
             list.Items.Add("Time");
 
-            DataGridViewColumn column1 = new DataGridViewColumn() {
+            // Create name and type characteristics column.
+            DataGridViewColumn column1 = new DataGridViewColumn()
+            {
                 HeaderText = "Name",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
                 Resizable = DataGridViewTriState.False,
                 CellTemplate = new DataGridViewTextBoxCell()
             };
-
-            DataGridViewColumn column2 = new DataGridViewColumn() {
+            DataGridViewColumn column2 = new DataGridViewColumn()
+            {
                 HeaderText = "Type",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
                 Resizable = DataGridViewTriState.False,
                 CellTemplate = list
             };
 
+            // Add column.
             dataGridView1.Columns.Add(column1);
             dataGridView1.Columns.Add(column2);
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.AllowUserToAddRows = false;    // Prohibition on adding new lines.
+            dataGridView1.RowHeadersVisible = false;    // To remove row headers and accordingly
+                                                        // the first unnecessary column.
 
-            timer1.Start();
-
+            // Add default characteristics.
             dataGridView1.Rows.Add("Time", "Time");
             dataGridView1.Rows.Add("Distance", "Decimal");
+        }
+
+        #endregion
+
+        private void AddSportForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            checkSport.Stop();
         }
     }
 }

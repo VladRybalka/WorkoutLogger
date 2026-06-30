@@ -1,5 +1,6 @@
 import flask as f
-from Logic.Database_Logic import database_init, database_adding_data, database_request_data
+from Logic.Database_Logic import (database_init, database_adding_data, database_request_data,
+                                  database_create_table)
 import logs.logger as log
 
 connect = f.Flask(__name__)
@@ -21,6 +22,7 @@ def start():
 def add_sport(name, characteristics):
     log.info_message_space("Start adding sports to the database.")
     database_adding_data.add_data_into_sport(name, characteristics)
+    database_create_table.create_workouts_table()
     log.info_message_space('End adding sports to the database.')
     return "200"
 
