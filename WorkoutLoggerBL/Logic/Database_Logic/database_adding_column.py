@@ -7,5 +7,5 @@ def add_columns(table_name, column_name):
         cursor = connection.cursor()
         for column in column_name:
             cursor.execute(f"ALTER TABLE Workouts_{table_name} ADD COLUMN {column[0]} {column[1]}")
-            log.info_message(f"{column_name[0]} added to table {table_name}")
+            log.info_message(f"[{column[0]} with type {column[1]}] added to table {table_name}")
         connection.commit()

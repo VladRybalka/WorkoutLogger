@@ -8,12 +8,14 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WorkoutLoggerUI.Add;
 
 namespace WorkoutLoggerUI
 {
     public partial class Main : Form
     {
-        AddSportForm addSportForm = new AddSportForm();
+        
+        
 
         public Main()
         {
@@ -24,12 +26,15 @@ namespace WorkoutLoggerUI
 
         private void btn_addSport_Click(object sender, EventArgs e)
         {
+            AddSportForm addSportForm = new AddSportForm();
             addSportForm.ShowDialog();
+            addSportForm.Dispose();
         }
 
         private void btn_addData_Click(object sender, EventArgs e)
         {
-
+            AddDataForm addDataForm = new AddDataForm();
+            addDataForm.Show();
         }
 
         private void btn_addColumn_Click(object sender, EventArgs e)
@@ -41,7 +46,11 @@ namespace WorkoutLoggerUI
 
         private async void Main_Load(object sender, EventArgs e)
         {
-            
+            Icon icon = new Icon("..\\..\\Image\\Favicon.ico");
+            Icon = icon;
+            addSportForm.Icon = icon;
+            addDataForm.Icon = icon;
+
             // Makes a request to initialize the database.
             #if DEBUG
 

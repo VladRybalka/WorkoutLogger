@@ -1,11 +1,47 @@
-2026-06-29 12:57:03,172 - INFO - Starting database initialization.
-2026-06-29 12:57:03,172 - INFO - Sport table:
-2026-06-29 12:57:03,173 - INFO - Sports table already exists.
-2026-06-29 12:57:03,173 - INFO - Sport Run has already been added.
-2026-06-29 12:57:03,173 - INFO - 
-2026-06-29 12:57:03,173 - INFO - Workout table:
-2026-06-29 12:57:03,173 - INFO - Table Workouts_Run has already been added.
-2026-06-29 12:57:03,174 - INFO - Table Workouts_hgf has already been added.
-2026-06-29 12:57:03,174 - INFO - Table Workouts_yt has already been added.
-2026-06-29 12:57:03,174 - INFO - 
-2026-06-29 12:57:03,174 - INFO - The database has been initialized.
+2026-07-01 14:45:09,687 - INFO - Starting database initialization.
+2026-07-01 14:45:09,687 - INFO - Sport table:
+2026-07-01 14:45:09,688 - INFO - Sports table already exists.
+2026-07-01 14:45:09,688 - INFO - Sport Run has already been added.
+2026-07-01 14:45:09,688 - INFO - 
+2026-07-01 14:45:09,689 - INFO - Workout table:
+2026-07-01 14:45:09,690 - INFO - Table Workouts_Run has already been added.
+2026-07-01 14:45:09,690 - INFO - Table Workouts_Cycling has already been added.
+2026-07-01 14:45:09,690 - INFO - Table Workouts_Walk has already been added.
+2026-07-01 14:45:09,690 - INFO - 
+2026-07-01 14:45:09,690 - INFO - The database has been initialized.
+2026-07-01 14:45:10,348 - INFO - 
+2026-07-01 14:45:10,348 - INFO - Get sports names from database.
+2026-07-01 14:45:10,400 - INFO - 
+2026-07-01 14:45:10,400 - INFO - Get sports characteristics from database.
+2026-07-01 14:45:25,394 - INFO - Starting database initialization.
+2026-07-01 14:45:25,394 - INFO - Sport table:
+2026-07-01 14:45:25,395 - INFO - Sports table already exists.
+2026-07-01 14:45:25,396 - INFO - Sport Run has already been added.
+2026-07-01 14:45:25,396 - INFO - 
+2026-07-01 14:45:25,396 - INFO - Workout table:
+2026-07-01 14:45:25,397 - INFO - Table Workouts_Run has already been added.
+2026-07-01 14:45:25,397 - INFO - Table Workouts_Cycling has already been added.
+2026-07-01 14:45:25,397 - INFO - Table Workouts_Walk has already been added.
+2026-07-01 14:45:25,397 - INFO - 
+2026-07-01 14:45:25,397 - INFO - The database has been initialized.
+2026-07-01 14:53:25,376 - INFO - Starting database initialization.
+2026-07-01 14:53:25,376 - INFO - Sport table:
+2026-07-01 14:53:25,376 - INFO - Sports table already exists.
+2026-07-01 14:53:25,377 - INFO - Sport Run has already been added.
+2026-07-01 14:53:25,377 - INFO - 
+2026-07-01 14:53:25,377 - INFO - Workout table:
+2026-07-01 14:53:25,378 - INFO - Table Workouts_Run has already been added.
+2026-07-01 14:53:25,378 - INFO - Table Workouts_Cycling has already been added.
+2026-07-01 14:53:25,378 - INFO - Table Workouts_Walk has already been added.
+2026-07-01 14:53:25,378 - INFO - 
+2026-07-01 14:53:25,378 - INFO - The database has been initialized.
+2026-07-01 14:53:26,053 - INFO - 
+2026-07-01 14:53:26,053 - INFO - Get sports names from database.
+2026-07-01 14:53:26,104 - INFO - 
+2026-07-01 14:53:26,104 - INFO - Get sports characteristics from database.
+2026-07-01 14:53:27,947 - INFO - 
+2026-07-01 14:53:27,947 - INFO - Get sports characteristics from database.
+2026-07-01 14:53:29,564 - INFO - 
+2026-07-01 14:53:29,565 - INFO - Get sports characteristics from database.
+2026-07-01 14:53:30,899 - INFO - 
+2026-07-01 14:53:30,899 - INFO - Get sports characteristics from database.

@@ -1,6 +1,6 @@
 import sqlite3
 
-def get_all_sports():
+def get_all_sports_data():
     with sqlite3.connect('Logic\\Database_Logic\\data.db') as connection:
         cursor = connection.cursor()
         cursor.execute("SELECT * FROM Sports")
@@ -8,3 +8,10 @@ def get_all_sports():
 
     return sports
 
+def get_sport_characteristics(sport):
+    with sqlite3.connect('Logic\\Database_Logic\\data.db') as connection:
+        cursor = connection.cursor()
+        cursor.execute("SELECT Characteristics FROM Sports WHERE Name = ?", [sport])
+        characteristics = cursor.fetchall()
+
+    return characteristics
