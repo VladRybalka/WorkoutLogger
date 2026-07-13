@@ -14,8 +14,9 @@ namespace WorkoutLoggerUI
 {
     public partial class Main : Form
     {
-        
-        
+        AddSportForm addSportForm = new AddSportForm();
+        AddDataForm addDataForm = new AddDataForm();
+
 
         public Main()
         {
@@ -26,14 +27,12 @@ namespace WorkoutLoggerUI
 
         private void btn_addSport_Click(object sender, EventArgs e)
         {
-            AddSportForm addSportForm = new AddSportForm();
-            addSportForm.ShowDialog();
-            addSportForm.Dispose();
+            addSportForm.Show();
         }
 
         private void btn_addData_Click(object sender, EventArgs e)
         {
-            AddDataForm addDataForm = new AddDataForm();
+            
             addDataForm.Show();
         }
 

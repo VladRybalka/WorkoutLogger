@@ -142,6 +142,7 @@
             this.Text = "Add Sport";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddSportForm_FormClosing);
             this.Load += new System.EventHandler(this.AddSportForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.AddSportForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

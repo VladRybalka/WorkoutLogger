@@ -63,6 +63,7 @@
     <Compile Include="Add\AddSportForm.Designer.cs">
       <DependentUpon>AddSportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HelpClass.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

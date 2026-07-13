@@ -13,8 +13,6 @@ namespace WorkoutLoggerUI
 {
     public partial class AddSportForm : Form
     {
-        bool isFromOpen = false;
-
         public AddSportForm()
         {
             InitializeComponent();
@@ -27,8 +25,7 @@ namespace WorkoutLoggerUI
             // Checking if sport already exists.
             if (!await ValidateSportExists())
             {
-                MessageBox.Show("Sport has already been added.", "Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                HelpClass.DoErrorMessage("Sport has already been added.");
                 return;
             }
 
@@ -36,8 +33,7 @@ namespace WorkoutLoggerUI
             int count = dataGridView1.RowCount;
             if(count == 0)
             {
-                MessageBox.Show("No characteristics added.", "Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                HelpClass.DoErrorMessage("No characteristics added.");
                 return;
             }
 
@@ -48,8 +44,8 @@ namespace WorkoutLoggerUI
                 // Checking if not all characteristics have name and type.
                 if (row.Cells[0].Value is null || row.Cells[1].Value is null)
                 {
-                    MessageBox.Show("One of the characteristics or data types is not specified.", "Error",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    HelpClass.DoErrorMessage("One of the characteristics or data" +
+                                " types is not specified.");
                     return;
                 }
                 charasteristics += row.Cells[0].Value.ToString() + ":" + row.Cells[1].Value.ToString() + ";";
@@ -63,7 +59,7 @@ namespace WorkoutLoggerUI
             }
 
             Close();
-            MessageBox.Show("Sport successfully added.");
+            HelpClass.DoInfoMessage("Sport successfully added.");
         }
 
         // Check if sport already added.
@@ -154,22 +150,7 @@ namespace WorkoutLoggerUI
 
         private void AddSportForm_Load(object sender, EventArgs e)
         {
-            if (!isFromOpen)
-            {
-                InitDataGridView();
-
-                isFromOpen = true;
-            }
-            else
-            {
-                
-                txt_name.Text = "";
-                ActiveControl = null;
-            }
-
-            txt_name_Leave(sender, e);    // Set Example Style.
-            // Start check if the sport name is entered.
-            checkSport.Start();
+            InitDataGridView();
         }
 
         private void InitDataGridView()
@@ -213,7 +194,23 @@ namespace WorkoutLoggerUI
 
         private void AddSportForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            e.Cancel = true;    // Cancel Dispose.
             checkSport.Stop();
+            Hide();
+        }
+
+        private void AddSportForm_VisibleChanged(object sender, EventArgs e)
+        {
+            // If Show, then True;
+            if (Visible)
+            {
+                txt_name.Text = "";
+                ActiveControl = null;
+                txt_name_Leave(sender, e);    // Set Example Style.
+
+                // Start check if the sport name is entered.
+                checkSport.Start();
+            }
         }
     }
 }

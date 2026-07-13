@@ -38,4 +38,4 @@ def create_sport_table():
         else:
             log.info_message("Sports table already exists.")
 
-    add_data_into_sport("Run", "Time:INTEGER;Distance:DECIMAL")
+    add_data_into_sport("Run", "Time:Integer;Distance:Decimal")

@@ -68,6 +68,7 @@
             this.btn_add.TabIndex = 9;
             this.btn_add.Text = "ADD";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_cancel
             // 
@@ -79,6 +80,7 @@
             this.btn_cancel.TabIndex = 10;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // dataGridView1
             // 
@@ -105,6 +107,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddDataForm";
             this.Text = "AddDataForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddDataForm_FormClosing);
             this.Load += new System.EventHandler(this.AddDataForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

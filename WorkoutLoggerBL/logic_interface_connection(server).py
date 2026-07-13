@@ -50,14 +50,28 @@ def get_sport():
     log.info_message_space("Get sports names from database.")
     return f.jsonify([row[0] for row in database_request_data.get_all_sports_data()])
 
-@connect.route('/get_characteristics/<sport>')
-def get_characteristics(sport):
-    log.info_message_space("Get sports characteristics from database.")
-    data = database_request_data.get_sport_characteristics(sport)[0][0]
+@connect.route('/get_names_characteristics/<sport>')
+def get_names_characteristics(sport):
+    log.info_message_space("Get sports names characteristics from database.")
+    data = database_request_data.get_sport_characteristics(sport)
     data = data.split(';')
     characteristics = []
     for i in data:
-        characteristics.append(i.split(':')[0])
+        characteristic = i.split(':')[0]
+        characteristics.append(characteristic)
+        log.info_message(characteristic)
+    return f.jsonify(characteristics)
+
+@connect.route('/get_type_characteristics/<sport>')
+def get_type_characteristics(sport):
+    log.info_message_space("Get sports names characteristics from database.")
+    data = database_request_data.get_sport_characteristics(sport)
+    data = data.split(';')
+    characteristics = []
+    for i in data:
+        characteristic = i.split(':')[0]
+        characteristics.append(characteristic)
+        log.info_message(characteristic)
     return f.jsonify(characteristics)
 
 #endregion

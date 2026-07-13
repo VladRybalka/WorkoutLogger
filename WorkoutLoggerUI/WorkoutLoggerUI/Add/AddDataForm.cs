@@ -21,12 +21,42 @@ namespace WorkoutLoggerUI.Add
             InitializeComponent();
         }
 
-        // Initialization 
-        private void AddDataForm_Load(object sender, EventArgs e)
+        #region -==- Buttons -==-
+
+        #region -==- ADD -==-
+
+        private void btn_add_Click(object sender, EventArgs e)
         {
-            InitDataGridView();
-            AddDataInComboBox();
+            if(!ValidateSend())
+            {
+                HelpClass.DoErrorMessage("All fields must be filled in.");
+                return;
+            }
         }
+
+        private bool ValidateSend()
+        {
+            bool res = true;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[1].Value is null)
+                {
+                    res = false;
+                }
+            }
+            return res;
+        }
+
+        #endregion
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            Hide();
+        }
+
+        #endregion
+
+        #region -==- DataGridView -==-
 
         private void InitDataGridView()
         {
@@ -36,6 +66,7 @@ namespace WorkoutLoggerUI.Add
                 HeaderText = "Name",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
                 Resizable = DataGridViewTriState.False,
+                ReadOnly = true,
                 CellTemplate = new DataGridViewTextBoxCell()
             };
             DataGridViewColumn column2 = new DataGridViewColumn()
@@ -54,6 +85,30 @@ namespace WorkoutLoggerUI.Add
                                                         // the first unnecessary column.
         }
 
+        private async void AddCharacteristicsInDataGridView(string selectedSport)
+        {
+            // Get json string from server.
+            string json = string.Empty;
+            using (HttpClient client = new HttpClient())
+            {
+                json = await client.GetStringAsync($"http://127.0.0.1:5001/get_names_characteristics/{selectedSport}");
+            }
+
+            // Get Characteristics Array from json.
+            string[] characteristics = JsonConvert.DeserializeObject<string[]>(json);
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns[0].ReadOnly = true;
+
+            foreach (string characteristic in characteristics)
+            {
+                dataGridView1.Rows.Add(characteristic);
+            }
+        }
+
+        #endregion
+
+        #region -==- ComboBox -==-
+
         private async void AddDataInComboBox()
         {
             // Get json string from server.
@@ -67,32 +122,37 @@ namespace WorkoutLoggerUI.Add
             string[] sports = JsonConvert.DeserializeObject<string[]>(json);
 
             // Add Sports in ComboBox.
-            foreach (string sport in sports) {
+            foreach (string sport in sports)
+            {
                 cmBoxSport.Items.Add(sport);
                 cmBoxSport.SelectedIndex = 0;
             }
         }
 
-        private async void cmBoxSport_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmBoxSport_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedSport = cmBoxSport.SelectedItem.ToString();    // Get Sport from ComboBox.
 
-            // Get json string from server.
-            string json = string.Empty;
-            using(HttpClient client = new HttpClient())
-            {
-                json = await client.GetStringAsync($"http://127.0.0.1:5001/get_characteristics/{selectedSport}");
-            }
+            AddCharacteristicsInDataGridView(selectedSport);
+        }
 
-            // Get Characteristics Array from json.
-            string[] characteristics = JsonConvert.DeserializeObject<string[]>(json);
+        #endregion
 
-            dataGridView1.Rows.Clear();
+        #region -==- Initialization -==-
 
-            foreach(string characteristic in characteristics)
-            {
-                dataGridView1.Rows.Add(characteristic);
-            }
+        // Initialization
+        private void AddDataForm_Load(object sender, EventArgs e)
+        {
+            InitDataGridView();
+            AddDataInComboBox();
+        }
+
+        #endregion
+
+        private void AddDataForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;    // Cancel Dispose.
+            Hide();
         }
     }
 }
