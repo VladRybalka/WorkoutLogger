@@ -63,6 +63,10 @@
     <Compile Include="Add\AddSportForm.Designer.cs">
       <DependentUpon>AddSportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataGridViewUserCells\Time\DataGridViewTimeCell.cs" />
+    <Compile Include="DataGridViewUserCells\Time\TimeEditingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="HelpClass.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>

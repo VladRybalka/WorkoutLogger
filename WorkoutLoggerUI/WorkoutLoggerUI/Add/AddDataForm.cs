@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Newtonsoft.Json;
+using WorkoutLoggerUI.DataGridViewUserCells;
 
 namespace WorkoutLoggerUI.Add
 {
@@ -91,17 +92,40 @@ namespace WorkoutLoggerUI.Add
             string json = string.Empty;
             using (HttpClient client = new HttpClient())
             {
-                json = await client.GetStringAsync($"http://127.0.0.1:5001/get_names_characteristics/{selectedSport}");
+                json = await client.GetStringAsync($"http://127.0.0.1:5001/" +
+                            $"get_names_characteristics/{selectedSport}");
             }
 
             // Get Characteristics Array from json.
-            string[] characteristics = JsonConvert.DeserializeObject<string[]>(json);
+            string[] characteristics_names = JsonConvert.DeserializeObject<string[]>(json);
             dataGridView1.Rows.Clear();
             dataGridView1.Columns[0].ReadOnly = true;
 
-            foreach (string characteristic in characteristics)
+            foreach (string characteristic in characteristics_names)
             {
                 dataGridView1.Rows.Add(characteristic);
+            }
+
+            using (HttpClient client = new HttpClient())
+            {
+                json = await client.GetStringAsync($"http://127.0.0.1:5001/" +
+                            $"get_type_characteristics/{selectedSport}");
+            }
+
+            string[] characteristics_types = JsonConvert.DeserializeObject<string[]>(json);
+            for (int i = 0; i < characteristics_types.Length; i++)
+            {
+                if (characteristics_names[i] == "Time")
+                {
+                    var cell = new DataGridViewTimeCell();
+                    cell.Value = "00:00:00";
+
+                    dataGridView1.Rows[i].Cells[1] = cell;
+                }
+                else
+                {
+                    dataGridView1.Rows[i].Cells[1] = new DataGridViewTextBoxCell();
+                }
             }
         }
 
