@@ -117,8 +117,8 @@ namespace WorkoutLoggerUI.Add
             {
                 if (characteristics_names[i] == "Time")
                 {
-                    var cell = new DataGridViewTimeCell();
-                    cell.Value = "00:00:00";
+                    var cell = new DataGridViewUserCells.Time.DataGridViewTimeCell();
+                    //cell.Value = "00:00:00";
 
                     dataGridView1.Rows[i].Cells[1] = cell;
                 }

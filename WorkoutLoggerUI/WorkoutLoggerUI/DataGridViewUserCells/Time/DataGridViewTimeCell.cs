@@ -1,54 +1,26 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
-using WorkoutLoggerUI.DataGridViewUserCells.Time;
 
-namespace WorkoutLoggerUI.DataGridViewUserCells
+namespace WorkoutLoggerUI.DataGridViewUserCells.Time
 {
     internal class DataGridViewTimeCell : DataGridViewTextBoxCell
     {
         public override Type EditType
         {
-            get
-            {
-                return typeof(TimeEditingControl);
-            }
+            get { return typeof(TimeEditingControl); }
         }
 
-        public override Type ValueType
+        public override Type ValueType => typeof(string);
+
+        public override object DefaultNewRowValue => "";
+
+        protected override object GetFormattedValue(object value, int rowIndex, 
+            ref DataGridViewCellStyle cellStyle, TypeConverter valueTypeConverter,
+            TypeConverter formattedValueTypeConverter, DataGridViewDataErrorContexts context)
         {
-            get
-            {
-                return typeof(string);
-            }
-        }
-
-        public override object DefaultNewRowValue
-        {
-            get
-            {
-                return "00:00:00";
-            }
-        }
-
-        public override void InitializeEditingControl(int rowIndex,
-                object initialFormattedValue,
-                DataGridViewCellStyle dataGridViewCellStyle)
-        {
-            base.InitializeEditingControl(
-                rowIndex,
-                initialFormattedValue,
-                dataGridViewCellStyle);
-
-            TimeEditingControl ctl =
-                DataGridView.EditingControl as TimeEditingControl;
-
-            if (ctl == null)
-                return;
-
-            if (Value == null || Value == DBNull.Value)
-                ctl.SetTime("00:00:00");
-            else
-                ctl.SetTime(Value.ToString());
+            return "00:00:00";
+            //return base.GetFormattedValue(value, rowIndex, ref cellStyle, valueTypeConverter, formattedValueTypeConverter, context);
         }
     }
 }
